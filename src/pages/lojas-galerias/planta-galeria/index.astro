@@ -3,6 +3,10 @@ import Header from '../../../includes/Header.astro';
 import Layout from '../../../layouts/Layout.astro';
 
 import Nav from '../Nav.astro';
+import CardSelecao from './CardSelecao.astro';
+import Card1 from './Card1.astro';
+import Card2 from './Card2.astro';
+import Card3 from './Card3.astro';
 ---
 
 <Layout>
@@ -33,7 +37,45 @@ import Nav from '../Nav.astro';
         </section>
 
         <section class="container-fluid">
-
+            <CardSelecao />
+            <Card1 />
+            <Card2 />
+            <Card3 />
         </section>
     </main>
+
+    <script is:inline>
+        addEventListener('load', () => {
+            $(".tab-datatable-planta").DataTable({
+                order: [[0, "asc"]],
+                ordering: true,
+                paging: true,
+                info: true,
+                scrollX: true,
+                scrollCollapse: true,
+
+                lengthMenu: [
+                    [10, -1],
+                    [10],
+                ],
+
+                columnDefs: [
+                    {
+                        targets: "no-sort",
+                        orderable: false,
+                    },
+                ],
+
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.13.4/i18n/pt-BR.json",
+                },
+            });
+
+            $('[data-row="delete"]').click(function () {
+                if (!confirm("Você tem certeza que deseja excluir?")) {
+                    return false;
+                }
+            });
+        })
+    </script>
 </Layout>

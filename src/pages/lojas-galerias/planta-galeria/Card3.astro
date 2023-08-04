@@ -1,0 +1,67 @@
+---
+import pavTerreo from './pav-terreo.pdf';
+---
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="position-relative">
+                    <div class="d-flex align-items-center justify-content-between gap-2 py-1 px-2 mb-1 rounded bg-app-orange-400 text-white">
+                        <h5 class="mb-0">Térreo</h5>
+                        <a
+                            class="btn-zoom"
+                            data-fancybox
+                            data-type="iframe"
+                            data-width="100%"
+                            data-height="100%"
+                            href={pavTerreo}>
+                            <i class="bi bi-zoom-in"></i> Ampliar
+                        </a>
+                    </div>
+                    <embed src={pavTerreo} width="100%" height="300px">
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <table class="table table-fixed table-hover tab-datatable-planta" width="100%">
+                    <thead>
+                        <tr>
+                            <th style="width: 150px;">LUC</th>
+                            <th style="width: 150px;">Metragem</th>
+                            <th style="width: 150px;">Situação</th>
+                            <th style="width: 150px;">Lojista</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>GRA006</td>
+                            <td>1.434,57</td>
+                            <td>Ocupada</td>
+                            <td>SPG-SMARTFIT</td>
+                        </tr>
+                        <tr>
+                            <td>LUC002</td>
+                            <td>22,34</td>
+                            <td>Vago</td>
+                            <td>xxxxxx</td>
+                        </tr>
+                        <tr>
+                            <td>EST001</td>
+                            <td>106,25</td>
+                            <td>Ocupada</td>
+                            <td>SPG - LAAV</td>
+                        </tr>
+                        <tr>
+                            <td>EST003</td>
+                            <td>420</td>
+                            <td>Ocupada</td>
+                            <td>SPG-GLOBAL AUTO CENTER</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!-- row -->
+    </div><!-- card-body -->
+</div><!-- card -->

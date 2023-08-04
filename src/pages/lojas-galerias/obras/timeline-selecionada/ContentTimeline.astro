@@ -1,0 +1,340 @@
+---
+import ContentTimelineProgress from "./ContentTimelineProgress.astro";
+
+---
+
+<div class="overflow-auto">
+    <section class="wrapper-timeline">
+
+        <div class="container-parts">
+            <ul>
+                <li class="name">
+                    <span>Projetos</span>
+                </li>
+                <li class="border-part"></li>
+            </ul>
+
+            <ul>
+                <li class="name">
+                    <span>Obras</span>
+                </li>
+                <li class="border-part"></li>
+            </ul>
+        </div>
+
+        <div class="container-boxs" data-template="boxs">
+        </div><!-- container-boxs -->
+
+        <ContentTimelineProgress />
+
+    </section><!-- .wrapper-timeline -->
+</div><!-- .overflow-auto -->
+
+<script is:inline>
+    const boxs = [
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "concluido",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="1200"',
+            fancyboxHeight: 'data-height="600"',
+            href: "./popups/timeline-1/",
+
+            number: "1",
+            percent: "100",
+            title: "Vistoria Inicial",
+            updateDate: "16/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "concluido",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="95%"',
+            href: "./popups/timeline-2/",
+
+            number: "2",
+            percent: "100",
+            title: "Boas Vindas",
+            updateDate: "17/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "concluido",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="95%"',
+            href: "./popups/timeline-3/",
+
+            number: "3",
+            percent: "100",
+            title: "Aprovação Projetos",
+            updateDate: "18/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "concluido",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="95%"',
+            href: "./popups/timeline-4/",
+
+            number: "4",
+            percent: "100",
+            title: "Liberação Obras",
+            updateDate: "19/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            class: "boxList",
+            status: "concluido",
+            fancybox: "",
+            fancyboxType: "",
+            fancyboxWidth: "",
+            fancyboxHeight: "",
+            href: "#",
+
+            number: "5",
+            percent: "100",
+            title: "Execução",
+            updateDate: "20/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "Dt Programada:",
+            listDate1: "15/06/23",
+            listTitle2: "Início da Obra:",
+            listDate2: "20/06/23",
+            listTitle3: "Dias Programado:",
+            listDate3: "60 dias",
+            listTitle4: "Dias em Obra:",
+            listDate4: "22 dias",
+        },
+
+        {
+            boxCurrentActive: "boxCurrentActive",
+            class: "",
+            status: "progresso",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="100%"',
+            href: "./popups/timeline-6/",
+
+            number: "6",
+            percent: "50",
+            title: "Vistoria Intermediária",
+            updateDate: "21/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "naoIniciado",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="100%"',
+            href: "./popups/timeline-7/",
+
+            number: "7",
+            percent: "0",
+            title: "Vistoria Final",
+            updateDate: "22/06/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+
+        {
+            boxCurrentActive: "",
+            class: "",
+            status: "reprovado",
+            fancybox: "data-fancybox",
+            fancyboxType: 'data-type="iframe"',
+            fancyboxWidth: 'data-width="95%"',
+            fancyboxHeight: 'data-height="95%"',
+            href: "./popups/timeline-8/",
+
+            number: "8",
+            percent: "0",
+            title: "Inauguração",
+            updateDate: "28/07/2023",
+            updateHour: "10:44",
+
+            listTitle1: "",
+            listDate1: "",
+            listTitle2: "",
+            listDate2: "",
+            listTitle3: "",
+            listDate3: "",
+            listTitle4: "",
+            listDate4: "",
+        },
+    ];
+
+    //----------------------------------------------------
+    // Timeline template
+    //----------------------------------------------------
+    const boxsContainer = document.querySelector('[data-template="boxs"]');
+
+    function generateBoxsTemplate(boxs) {
+        let html = "";
+
+        boxs.forEach((box) => {
+            html += `
+                <a
+                    class="card box ${box.class} ${box.boxCurrentActive}"
+                    data-status="${box.status}"
+                    ${box.fancybox}
+                    ${box.fancyboxType}
+                    ${box.fancyboxWidth}
+                    ${box.fancyboxHeight}
+                    href="${box.href}"
+                >
+                    <div class="card-body">
+                        <span class="number"><i class="num">${box.number}</i></span>
+                        <p class="mb-1"><i class="icon bi"></i></p>
+                        <p class="mb-2">${box.percent}%</p>
+                        <p class="title">${box.title}</p>
+                        <p class="text"></p>
+                        <ul class="list-text">
+                            <li>
+                                <span>${box.listTitle1}</span>
+                                <span>${box.listDate1}</span>
+                            </li>
+                            <li>
+                                <span>${box.listTitle2}</span>
+                                <span>${box.listDate2}</span>
+                            </li>
+                            <li>
+                                <span>${box.listTitle3}</span>
+                                <span>${box.listDate4}</span>
+                            </li>
+                            <li>
+                                <span>${box.listTitle4}</span>
+                                <span>${box.listDate4}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="update" data-bs-toggle="tooltip" data-bs-title="Atualização">
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>${box.updateDate}</span>
+                        <span>${box.updateHour}</span>
+                    </div>
+
+                    <div class="boxCurrent"></div>
+                </a>
+            `;
+        });
+        return html;
+    }
+    boxsContainer.innerHTML = generateBoxsTemplate(boxs);
+
+    //----------------------------------------------------
+    // Timeline Status
+    //----------------------------------------------------
+    const allBox = document.querySelectorAll("[data-status]");
+
+    const statusMap = {
+        concluido: {
+            class: "bi-check-circle-fill",
+            text: "Processos Concluídos",
+        },
+        progresso: {
+            class: "bi-arrow-clockwise",
+            text: "Em progresso",
+        },
+        reprovado: {
+            class: "bi-x-circle",
+            text: "Reprovado",
+        },
+        naoIniciado: {
+            class: "bi-stop-circle",
+            text: "Não iniciado",
+        },
+    };
+
+    allBox.forEach((box) => {
+        const dataStatusValue = box.getAttribute("data-status");
+        const icon = box.querySelector(".icon");
+        const text = box.querySelector(".text");
+
+        const statusInfo = statusMap[dataStatusValue];
+        if (statusInfo) {
+            const { class: iconClass, text: statusText } = statusInfo;
+            icon.classList.add(iconClass);
+            text.innerText = statusText;
+        }
+    });
+</script>

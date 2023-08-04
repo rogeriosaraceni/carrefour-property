@@ -3,8 +3,8 @@ import Header from '../../../../includes/Header.astro';
 import Layout from '../../../../layouts/Layout.astro';
 
 import Nav from '../../Nav.astro';
-import ContentSelecao from './ContentSelecao.astro';
-import ContentListagem from './ContentListagem.astro';
+import ContentTimelineMap from './ContentTimelineMap.astro';
+import ContentTimeline from './ContentTimeline.astro';
 ---
 
 <Layout>
@@ -29,15 +29,20 @@ import ContentListagem from './ContentListagem.astro';
                         </li>
                         <li class="breadcrumb-item">Lojas Galerias</li>
                         <li class="breadcrumb-item">Obras</li>
-                        <li class="active breadcrumb-item" aria-current="page">Time Line</li>
+                        <li class="breadcrumb-item">Time Line</li>
+                        <li class="active breadcrumb-item" aria-current="page">Selecionada</li>
                     </ol>
                 </div>
             </nav>
         </section>
 
         <section class="container-fluid">
-            <ContentSelecao />
-            <ContentListagem />
+            <div class="card">
+                <div class="card-body">
+                    <ContentTimelineMap />
+                    <ContentTimeline />
+                </div>
+            </div>
         </section>
     </main>
 </Layout>

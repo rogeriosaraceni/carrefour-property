@@ -3,6 +3,8 @@ import Header from '../../../../includes/Header.astro';
 import Layout from '../../../../layouts/Layout.astro';
 
 import Nav from '../../Nav.astro';
+import ContentCad from './ContentCad.astro';
+import ContentListagem from './ContentListagem.astro';
 ---
 
 <Layout>
@@ -34,7 +36,8 @@ import Nav from '../../Nav.astro';
         </section>
 
         <section class="container-fluid">
-
+            <ContentCad />
+            <ContentListagem />
         </section>
     </main>
 </Layout>

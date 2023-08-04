@@ -1,10 +1,10 @@
 ---
 import Header from '../../includes/Header.astro';
 import Layout from '../../layouts/Layout.astro';
-import CardConsultores from './CardConsultores.astro';
-import CardCoordenador from './CardCoordenador.astro';
-import CardMaior from './CardMaior.astro';
-import CardResumo from './CardResumo.astro';
+import ContentConsultores from './ContentConsultores.astro';
+import ContentCoordenador from './ContentCoordenador.astro';
+import ContentMaior from './ContentMaior.astro';
+import ContentResumo from './ContentResumo.astro';
 
 import Nav from './Nav.astro';
 ---
@@ -56,16 +56,16 @@ import Nav from './Nav.astro';
         </section>
 
         <section class="container-fluid">
-            <CardResumo />
-            <CardCoordenador />
+            <ContentResumo />
+            <ContentCoordenador />
 
             <div class="row">
                 <div class="col-lg-6">
-                    <CardMaior />
+                    <ContentMaior />
                 </div>
 
                 <div class="col-lg-6">
-                    <CardConsultores />
+                    <ContentConsultores />
                 </div>
             </div>
         </section>

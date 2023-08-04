@@ -1,0 +1,62 @@
+<section class="box-right">
+    <img class="img-box-right" src="/assets/images/bg.jpg">
+
+    <div class="content-box-right">
+        <article class="canvas"></article>
+
+        <article class="wrapper-login">
+            <img class="img-fluid logo-login-horizontal" src="/assets/images/logo-purple.svg" alt="logo" />
+
+            <div class="card card-login slide-in-right" data-login="card">
+                <div class="card-body overflow-hidden">
+
+                    <section class="d-flex flex-column align-content-center justify-content-between h-100">
+                        <div class="mb-1">
+                            <h3 class="title-login">Login</h3>
+
+                            <form action="" method="post">
+                                <label class="d-block mb-4">
+                                    <input type="email" name="email" placeholder="e-mail" class="form-control" required>
+                                </label>
+
+                                <label class="d-block mb-4 position-relative">
+                                    <input type="password" name="senha" placeholder="senha" id="senha" class="form-control" required>
+                                    <span class="btn-showPass" date-bs-toggle="tooltip" data-bs-title="mostrar/esconder senha">
+                                        <i data-js="currentTogglePass" class="bi bi-lock"></i>
+                                    </span>
+                                </label>
+
+                                <a class="btn form-control btn-submit d-flex align-items-center justify-content-center" href="/principal/">Entrar</a>
+                            </form>
+                        </div>
+
+                        <div class="text-center pt-1 text-app-purple-400 text-opacity-75 small">
+                            Carrefour Property ©
+                            <span data-js="currentYear"></span>
+                            <span class="mx-1">|</span>
+                            All rights reserved.
+                        </div>
+                    </section>
+
+                </div><!-- card-body -->
+            </div><!-- card -->
+        </article><!-- wrapper-login -->
+    </div>
+</section>
+
+<script is:inline>
+    /*! --------------------------------------------------------------------
+    * mostra senha
+    * --------------------------------------------------------------------*/
+    let btnShowAllPassword = document.querySelectorAll(".btn-showPass");
+
+    btnShowAllPassword.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.children[0].classList.toggle("bi-unlock");
+            const inputPass = item.parentNode.children[0];
+            const type =
+                inputPass.getAttribute("type") === "password" ? "text" : "password";
+            inputPass.setAttribute("type", type);
+        });
+    });
+</script>

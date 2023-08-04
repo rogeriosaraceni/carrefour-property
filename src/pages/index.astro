@@ -1,5 +1,21 @@
-<script is:inline>
-    if (window.location.pathname === '/') {
-        window.location.href = './principal/';
-    }
-</script>
+---
+import Head from '../includes/Head.astro';
+
+import '../sass/imports.scss'
+import './login/login.scss'
+
+import ContentLeft from './login/ContentLeft.astro';
+import ContentRight from './login/ContentRight.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <Head />
+
+    <body class="vh-100">
+        <main class="wrapper-grid">
+            <ContentLeft />
+            <ContentRight />
+        </main>
+    </body>
+</html>

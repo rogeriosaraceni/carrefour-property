@@ -1,0 +1,73 @@
+---
+import Header from '../../includes/Header.astro';
+import Layout from '../../layouts/Layout.astro';
+import CardConsultores from './CardConsultores.astro';
+import CardCoordenador from './CardCoordenador.astro';
+import CardMaior from './CardMaior.astro';
+import CardResumo from './CardResumo.astro';
+
+import Nav from './Nav.astro';
+---
+
+<Layout>
+    <style is:inline>
+        .box-chart {
+            width: 100%;
+            height: 400px;
+        }
+
+        .table-responsive {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .table-responsive .table {
+            margin-bottom: 0;
+        }
+    </style>
+
+    <script is:inline src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script is:inline src="https://www.amcharts.com/lib/4/charts.js"></script>
+    <script is:inline src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <header class="header-app">
+        <nav class="navbar navbar-expand-xl fixed-top navbar-dark bg-app-purple-400 py-1">
+            <section class="container-fluid">
+                <div class="d-flex flex-column w-100">
+                    <Header />
+                    <Nav />
+                </div>
+            </section>
+        </nav>
+    </header>
+
+    <main class="main-app">
+        <section class="container-fluid">
+            <nav aria-label="breadcrumb" class="breadcrumb-app">
+                <div class="card card-body">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/principal/"><i class="bi bi-house-fill"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Comercial</li>
+                    </ol>
+                </div>
+            </nav>
+        </section>
+
+        <section class="container-fluid">
+            <CardResumo />
+            <CardCoordenador />
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <CardMaior />
+                </div>
+
+                <div class="col-lg-6">
+                    <CardConsultores />
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

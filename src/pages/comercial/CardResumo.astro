@@ -1,0 +1,253 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="text-center">Resumo NewCo</h4>
+
+        <div class="row">
+            <article class="col-lg-6">
+                <div class="table-responsive">
+                    <table class="table table-fixed text-center">
+                        <thead>
+                            <tr>
+                                <th style="width: 90px;">ABL m²</th>
+                                <th style="width: 90px;">Ocupado</th>
+                                <th style="width: 90px;">Vago</th>
+                                <th style="width: 90px;">Total</th>
+                                <th style="width: 90px;">% Vacância</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>BIG</td>
+                                <td>134.158</td>
+                                <td>18.784</td>
+                                <td>152.942</td>
+                                <td>12,3%</td>
+                            </tr>
+                            <tr>
+                                <td>CRF</td>
+                                <td>281.807</td>
+                                <td>23.400</td>
+                                <td>305.207</td>
+                                <td>7,7%</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr class="fw-bold">
+                                <td>NewCO</td>
+                                <td>415.966</td>
+                                <td>42.183</td>
+                                <td>458.149</td>
+                                <td>9,2%</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="d-flex flex-column align-items-center border rounded p-2">
+                    <h4>ABL m²</h4>
+                    <div class="box-chart" id="chartdiv-abl-resumo"></div>
+                </div>
+            </article>
+
+            <article class="col-lg-6">
+                <div class="table-responsive">
+                    <table class="table table-fixed text-center">
+                        <thead>
+                            <tr>
+                                <th style="width: 90px;">Qnt. Lucs</th>
+                                <th style="width: 90px;">Ocupado</th>
+                                <th style="width: 90px;">Vago</th>
+                                <th style="width: 90px;">Total</th>
+                                <th style="width: 90px;">% Vacância</th>
+                                <th style="width: 90px;">Qnt. Sites</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>BIG</td>
+                                <td>1.009</td>
+                                <td>309</td>
+                                <td>1.318</td>
+                                <td>23,4%</td>
+                                <td>231</td>
+                            </tr>
+                            <tr>
+                                <td>CRF</td>
+                                <td>1.752</td>
+                                <td>272</td>
+                                <td>2.024</td>
+                                <td>13,4%</td>
+                                <td>129</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr class="fw-bold">
+                                <td>NewCO</td>
+                                <td>2.761</td>
+                                <td>581</td>
+                                <td>3.342</td>
+                                <td>17,4%</td>
+                                <td>360</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="d-flex flex-column align-items-center border rounded p-2">
+                    <h4>Quantidade Luc's</h4>
+                    <div class="box-chart" id="chartdiv-lucs-resumo"></div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    am4core.ready(function () {
+        am4core.useTheme(am4themes_animated);
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv-abl-resumo", am4charts.XYChart);
+        chart.maskBullets = false;
+        chart.logo.disabled = true;
+
+        // Add data
+        chart.data = [
+            {
+                "indicador": "BIG",
+                "ocupado": 134158,
+                "vago": 18784,
+            },
+            {
+                "indicador": "CRF",
+                "ocupado": 281807,
+                "vago": 23400,
+            },
+        ];
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "indicador";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.grid.template.disabled = true;
+        categoryAxis.renderer.labels.template.fontSize = 13;
+        categoryAxis.renderer.labels.template.horizontalCenter = "middle";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = 0;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.min = 0;
+        valueAxis.renderer.labels.template.fontSize = 14;
+        //valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.renderer.grid.template.disabled = true;
+
+        function createSeries(field, name, stacked, color) {
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.name = name;
+            series.dataFields.valueY = field;
+            series.dataFields.categoryX = "indicador";
+            series.sequencedInterpolation = true;
+            series.stacked = stacked;
+            series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+            series.columns.template.width = am4core.percent(45);
+            series.columns.template.fill = color;
+            series.stroke = color;
+
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+            labelBullet.label.text = "{valueY}";
+            labelBullet.locationY = 0.5;
+            labelBullet.fontSize = 13;
+
+            return series;
+        }
+
+        createSeries("ocupado", "Ocupado", true, am4core.color("#4472c4"));
+        createSeries("vago", "Vago", true, am4core.color("#ed7d31"));
+
+        // Legend
+        chart.legend = new am4charts.Legend();
+
+        var markerTemplate = chart.legend.markers.template;
+        markerTemplate.width = 16;
+        markerTemplate.height = 16;
+    });
+</script>
+
+<script is:inline>
+    am4core.ready(function () {
+        am4core.useTheme(am4themes_animated);
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv-lucs-resumo", am4charts.XYChart);
+        chart.maskBullets = false;
+        chart.logo.disabled = true;
+
+        // Add data
+        chart.data = [
+            {
+                indicador: "BIG",
+                ocupado: 1009,
+                vago: 309,
+            },
+            {
+                indicador: "CRF",
+                ocupado: 1752,
+                vago: 272,
+            },
+        ];
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "indicador";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.grid.template.disabled = true;
+        categoryAxis.renderer.labels.template.fontSize = 13;
+        categoryAxis.renderer.labels.template.horizontalCenter = "middle";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = 0;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.min = 0;
+        valueAxis.renderer.labels.template.fontSize = 14;
+        //valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.renderer.grid.template.disabled = true;
+
+        function createSeries(field, name, stacked, color) {
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.name = name;
+            series.dataFields.valueY = field;
+            series.dataFields.categoryX = "indicador";
+            series.sequencedInterpolation = true;
+            series.stacked = stacked;
+            series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+            series.columns.template.width = am4core.percent(45);
+            series.columns.template.fill = color;
+            series.stroke = color;
+
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+            labelBullet.label.text = "{valueY}";
+            labelBullet.locationY = 0.5;
+            labelBullet.fontSize = 13;
+
+            return series;
+        }
+
+        createSeries("ocupado", "Ocupado", true, am4core.color("#cd3f53"));
+        createSeries("vago", "Vago", true, am4core.color("#fbc8ab"));
+
+        // Legend
+        chart.legend = new am4charts.Legend();
+
+        var markerTemplate = chart.legend.markers.template;
+        markerTemplate.width = 16;
+        markerTemplate.height = 16;
+    });
+</script>

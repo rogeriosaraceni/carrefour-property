@@ -1,0 +1,30 @@
+---
+interface Link {
+	href: string;
+	text: string;
+}
+
+const links: Link[] = [
+    { href: '/comercial/', text: 'Comercial' },
+];
+---
+
+<div class="navbar-collapse offcanvas-collapse navbar-dark bg-app-purple-400 h-100" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+            <a class="nav-link" href="/principal/">Principal</a>
+        </li>
+
+        {
+            links.map(({ href, text }) => (
+                <li class="nav-item">
+                    <a class="nav-link" href={href} aria-current={href === Astro.url.pathname ? 'page' : undefined}>
+                        {text}
+                    </a>
+                </li>
+            ))
+        }
+
+    </ul>
+</div>

@@ -1,0 +1,297 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="text-center">Coordenador</h4>
+
+        <div class="row">
+            <article class="col-lg-6">
+                <div class="table-responsive">
+                    <table class="table table-fixed text-center">
+                        <thead>
+                            <tr>
+                                <th>ABL m²</th>
+                                <th>Ocupado</th>
+                                <th>Vago</th>
+                                <th>Total</th>
+                                <th>% Vacância</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Wilson Fernandes</td>
+                                <td>125.014</td>
+                                <td>20.858</td>
+                                <td>145.871</td>
+                                <td>14,3%</td>
+                            </tr>
+                            <tr>
+                                <td>Thaiz Magnino</td>
+                                <td>51.475</td>
+                                <td>7.459</td>
+                                <td>58.934</td>
+                                <td>12,7%</td>
+                            </tr>
+                            <tr>
+                                <td>Thiago Zupo</td>
+                                <td>147.249</td>
+                                <td>7.821</td>
+                                <td>155.070</td>
+                                <td>5,0%</td>
+                            </tr>
+                            <tr>
+                                <td>Vinícius Guimarães</td>
+                                <td>92.228</td>
+                                <td>6.045</td>
+                                <td>98.273</td>
+                                <td>6,2%</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr class="fw-bold">
+                                <td>NewCO</td>
+                                <td>415.966</td>
+                                <td>42.183</td>
+                                <td>458.149</td>
+                                <td>9,2%</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="d-flex flex-column align-items-center border rounded p-2">
+                    <h4>ABL m²</h4>
+                    <div class="box-chart" id="chartdiv-abl-coordenador"></div>
+                </div>
+            </article>
+
+            <article class="col-lg-6">
+                <div class="table-responsive">
+                    <table class="table table-fixed text-center">
+                        <thead>
+                            <tr>
+                                <th>Qnt. Lucs</th>
+                                <th>Ocupado</th>
+                                <th>Vago</th>
+                                <th>Total</th>
+                                <th>% Vacância</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Wilson Fernandes</td>
+                                <td>1.023</td>
+                                <td>255</td>
+                                <td>1.278</td>
+                                <td>19,95%</td>
+                            </tr>
+                            <tr>
+                                <td>Thaiz Magnino</td>
+                                <td>216</td>
+                                <td>64</td>
+                                <td>280</td>
+                                <td>22,86%</td>
+                            </tr>
+                            <tr>
+                                <td>Thiago Zupo</td>
+                                <td>681</td>
+                                <td>135</td>
+                                <td>816</td>
+                                <td>16,54%</td>
+                            </tr>
+                            <tr>
+                                <td>Vinícius Guimarães</td>
+                                <td>841</td>
+                                <td>127</td>
+                                <td>968</td>
+                                <td>13,12%</td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot>
+                            <tr class="fw-bold">
+                                <td>NewCO</td>
+                                <td>2.761</td>
+                                <td>581</td>
+                                <td>3.342</td>
+                                <td>17,38%</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="d-flex flex-column align-items-center border rounded p-2">
+                    <h4>Quantidade Luc's</h4>
+                    <div class="box-chart" id="chartdiv-lucs-coordenador"></div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    am4core.ready(function () {
+        am4core.useTheme(am4themes_animated);
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv-abl-coordenador", am4charts.XYChart);
+        chart.maskBullets = false;
+        chart.logo.disabled = true;
+
+        // Add data
+        chart.data = [
+            {
+                indicador: "Wilson Fernandes",
+                ocupado: 125014,
+                vago: 20858,
+            },
+            {
+                indicador: "Thaiz Magnino",
+                ocupado: 51475,
+                vago: 7459,
+            },
+            {
+                indicador: "Thiago Zupo",
+                ocupado: 147249,
+                vago: 7821,
+            },
+            {
+                indicador: "Vinícius Guimarães",
+                ocupado: 92228,
+                vago: 6045,
+            },
+        ];
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "indicador";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.grid.template.disabled = true;
+        categoryAxis.renderer.labels.template.fontSize = 13;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = -45;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.min = 0;
+        valueAxis.renderer.labels.template.fontSize = 14;
+        //valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.renderer.grid.template.disabled = true;
+
+        function createSeries(field, name, stacked, color) {
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.name = name;
+            series.dataFields.valueY = field;
+            series.dataFields.categoryX = "indicador";
+            series.sequencedInterpolation = true;
+            series.stacked = stacked;
+            series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+            series.columns.template.width = am4core.percent(75);
+            series.columns.template.fill = color;
+            series.stroke = color;
+
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+            labelBullet.label.text = "{valueY}";
+            labelBullet.locationY = 0.5;
+            labelBullet.fontSize = 13;
+
+            return series;
+        }
+
+        createSeries("ocupado", "Ocupado", true, am4core.color("#4472c4"));
+        createSeries("vago", "Vago", true, am4core.color("#ed7d31"));
+
+        // Legend
+        chart.legend = new am4charts.Legend();
+
+        var markerTemplate = chart.legend.markers.template;
+        markerTemplate.width = 16;
+        markerTemplate.height = 16;
+    });
+</script>
+
+<script is:inline>
+    am4core.ready(function () {
+        am4core.useTheme(am4themes_animated);
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv-lucs-coordenador", am4charts.XYChart);
+        chart.maskBullets = false;
+        chart.logo.disabled = true;
+
+        // Add data
+        chart.data = [
+            {
+                indicador: "Wilson Fernandes",
+                ocupado: 1023,
+                vago: 255,
+            },
+            {
+                indicador: "Thaiz Magnino",
+                ocupado: 216,
+                vago: 64,
+            },
+            {
+                indicador: "Thiago Zupo",
+                ocupado: 681,
+                vago: 135,
+            },
+            {
+                indicador: "Vinícius Guimarães",
+                ocupado: 841,
+                vago: 127,
+            },
+        ];
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "indicador";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 10;
+        categoryAxis.renderer.grid.template.disabled = true;
+        categoryAxis.renderer.labels.template.fontSize = 13;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = -45;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.min = 0;
+        valueAxis.renderer.labels.template.fontSize = 14;
+        //valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.renderer.grid.template.disabled = true;
+
+        function createSeries(field, name, stacked, color) {
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.name = name;
+            series.dataFields.valueY = field;
+            series.dataFields.categoryX = "indicador";
+            series.sequencedInterpolation = true;
+            series.stacked = stacked;
+            series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+            series.columns.template.width = am4core.percent(70);
+            series.columns.template.fill = color;
+            series.stroke = color;
+
+            var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+            labelBullet.label.text = "{valueY}";
+            labelBullet.locationY = 0.5;
+            labelBullet.fontSize = 13;
+
+            return series;
+        }
+
+        createSeries("ocupado", "Ocupado", true, am4core.color("#cd3f53"));
+        createSeries("vago", "Vago", true, am4core.color("#fbc8ab"));
+
+        // Legend
+        chart.legend = new am4charts.Legend();
+
+        var markerTemplate = chart.legend.markers.template;
+        markerTemplate.width = 16;
+        markerTemplate.height = 16;
+    });
+</script>

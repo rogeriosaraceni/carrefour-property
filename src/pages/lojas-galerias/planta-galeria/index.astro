@@ -44,6 +44,17 @@ import Card3 from './Card3.astro';
         </section>
     </main>
 
+    <style is:inline>
+        .btn-zoom{
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn-zoom:hover{
+            color: #222;
+        }
+    </style>
+
     <script is:inline>
         addEventListener('load', () => {
             $(".tab-datatable-planta").DataTable({

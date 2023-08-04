@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-body">
+        <ul class="nav nav-pills nav-fill gap-2">
+            <li class="nav-item">
+                <a data-link="step" class="nav-link border" href="./index1.html">
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-envelope fs-5"></i>
+                        <span>1-Disparar email</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a data-link="step" class="nav-link border" href="./index2.html">
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-pencil-square fs-5"></i>
+                        <span>2-Preencher Dados</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a data-link="step" class="nav-link border" href="./index3.html">
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-clipboard2-check fs-5"></i>
+                        <span>3-Termo de Reponsabilidade</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a data-link="step" class="nav-link border" href="./index4.html">
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-file-text fs-5"></i>
+                        <span>4-Solicitação Análise de Projeto</span>
+                    </div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a data-link="step" class="nav-link border" href="./index5.html">
+                    <div class="d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-layers fs-5 fs-5"></i>
+                        <span>5-Arquivos Boas Vindas</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script is:inline>
+    const urlCurrent = window.location.href
+    const links = document.querySelectorAll('[data-link="step"]')
+
+    links.forEach( link => {
+        link.href === urlCurrent && link.classList.add('active')
+    })
+</script>

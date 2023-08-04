@@ -1,0 +1,23 @@
+---
+// Includes Imports
+import Head from '../includes/Head.astro';
+import Footer from '../includes/Footer.astro';
+
+//scss
+import '../sass/imports.scss'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <Head />
+	</head>
+
+	<body>
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+</style>

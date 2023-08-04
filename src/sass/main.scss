@@ -1,33 +1,4 @@
 /* --------------------------------------------------------------------
-* - import fonts
----------------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
-
-// @font-face {
-//     font-family: 'Montreal Regular';
-//     font-style: normal;
-//     font-weight: normal;
-//     src: local('Montreal Regular'), url('../fonts/montreal/Montreal-Regular.woff') format('woff');
-// }
-
-// @font-face {
-//     font-family: 'Montreal Bold';
-//     font-style: normal;
-//     font-weight: normal;
-//     src: local('Montreal Bold'), url('../fonts/montreal/Montreal-Bold.woff') format('woff');
-// }
-
-@font-face {
-    font-family: 'Banana Yeti';
-    src: url('/fonts/bananaYeti/BananaYeti-ExtraBold.woff2') format('woff2'),
-         url('/fonts/bananaYeti/BananaYeti-ExtraBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* --------------------------------------------------------------------
 * - body
 ---------------------------------------------------------------------- */
 html{

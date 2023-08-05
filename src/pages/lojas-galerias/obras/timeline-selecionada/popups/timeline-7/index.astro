@@ -1,6 +1,11 @@
 ---
 import Head from '../../../../../../includes/Head.astro';
 import '../../../../../../sass/imports.scss'
+
+import Content1 from './Content1.astro';
+import Content2 from './Content2.astro';
+import Content3 from './Content3.astro';
+import Content4 from './Content4.astro';
 ---
 
 <!DOCTYPE html>
@@ -8,6 +13,35 @@ import '../../../../../../sass/imports.scss'
     <Head />
 
     <body class="body-popup">
+        <div class="card">
+            <div class="card-body">
+                <div class="section-title">
+                    <span class="title">Vistoria Final</span>
+                </div>
+            </div>
+        </div>
 
+        <form action="" method="post">
+            <section class="row">
+                <div class="col-md-6">
+                    <Content1 />
+                </div>
+
+                <div class="col-md-6">
+                    <Content2 />
+                </div>
+            </section>
+
+            <Content3 />
+            <Content4 />
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </body>
 </html>

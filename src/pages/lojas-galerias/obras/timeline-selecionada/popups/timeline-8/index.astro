@@ -1,13 +1,66 @@
 ---
 import Head from '../../../../../../includes/Head.astro';
 import '../../../../../../sass/imports.scss'
+
+import Content1 from './Content1.astro';
+import Content2 from './Content2.astro';
+import Content3 from './Content3.astro';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <Head />
 
-    <body class="body-popup">
+    <style is:inline>
+        input[type="checkbox"].check-pendencias{
+            -webkit-appearance: none;
+            appearance: none;
+            width: 13px;
+            height: 13px;
+            position: relative;
+        }
 
+        input[type="checkbox"].check-pendencias:checked{
+            background-color: #aaa;
+        }
+        input[type="checkbox"].check-pendencias:checked:after {
+            font-family: bootstrap-icons!important;
+            content: '\F26E';
+            color: #fff;
+            position: absolute;
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+
+    <body class="body-popup">
+        <div class="card">
+            <div class="card-body">
+                <div class="section-title">
+                    <span class="title">Inauguração</span>
+                </div>
+            </div>
+        </div>
+
+        <form action="" method="post">
+            <section class="row">
+                <div class="col-md-6">
+                    <Content1 />
+                </div>
+
+                <div class="col-md-6">
+                    <Content2 />
+                </div>
+            </section>
+
+            <Content3 />
+
+            <div class="card">
+                <div class="card-body">
+                    <button type="submit" class="btn btn-primary float-end">Salvar</button>
+                </div>
+            </div>
+        </form>
     </body>
 </html>

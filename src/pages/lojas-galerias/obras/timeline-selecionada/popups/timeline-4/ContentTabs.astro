@@ -1,0 +1,58 @@
+<style is:inline>
+    .nav-fill .nav-link{
+        color: var(--color-purple-400);
+        transition: all 0.3s;
+        background-color: #f8f8f8;
+    }
+    .nav-fill .nav-link:hover{
+        background-color: #efefef;
+    }
+    .nav-fill .nav-link.active,
+    .nav-fill .nav-link.active:hover{
+        background-color: var(--color-purple-400);
+    }
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-center">
+            <ul class="nav nav-pills nav-fill row w-100 justify-content-center gap-1">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <li class="nav-item">
+                        <a
+                            data-link="step"
+                            class="nav-link border"
+                            href="/lojas-galerias/obras/timeline-selecionada/popups/timeline-4/tab1/">
+                            <div class="d-flex align-items-center justify-content-center gap-1">
+                                <span>Prevenção</span>
+                            </div>
+                        </a>
+                    </li>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <li class="nav-item">
+                        <a
+                            data-link="step"
+                            class="nav-link border"
+                            href="/lojas-galerias/obras/timeline-selecionada/popups/timeline-4/tab2/">
+                            <div class="d-flex align-items-center justify-content-center gap-1">
+                                <span>Segurança do Trabalho</span>
+                            </div>
+                        </a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    const urlCurrent = window.location.href
+    const links = document.querySelectorAll('[data-link="step"]')
+
+    links.forEach( link => {
+        link.href === urlCurrent && link.classList.add('active')
+    })
+</script>
+

@@ -1,0 +1,28 @@
+---
+import Head from '../../../../../../../includes/Head.astro';
+import '../../../../../../../sass/imports.scss';
+
+import ContentTabs from '../ContentTabs.astro';
+import ContentTitle from '../ContentTitle.astro';
+import ContentListagem from './ContentListagem.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <Head />
+
+    <body class="body-popup">
+        <ContentTitle />
+        <ContentTabs />
+
+        <div class="card">
+            <div class="card-body">
+                <div class="section-title">
+                    <span class="title">Segurança do Trabalho</span>
+                </div>
+
+                <ContentListagem />
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+---
+import Head from '../../../../../../../includes/Head.astro';
+import '../../../../../../../sass/imports.scss';
+
+import ContentTabs from '../ContentTabs.astro';
+import ContentTitle from '../ContentTitle.astro';
+import ContentSelecao from './ContentSelecao.astro';
+import ContentForm1 from './ContentForm1.astro';
+import ContentForm2 from './ContentForm2.astro';
+import ContentForm3 from './ContentForm3.astro';
+import ContentListagem from './ContentListagem.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <Head />
+
+    <body class="body-popup">
+        <ContentTitle />
+        <ContentTabs />
+
+        <ContentSelecao />
+
+        <form method="" action="" data-form="prevencao" class="d-none">
+            <ContentForm1 />
+            <ContentForm2 />
+            <ContentForm3 />
+
+            <div class="card">
+                <div class="card-body">
+                    <p class="p-2 bg-app-red-400 text-white rounded mb-1">
+                        IMPORTANTE: Caso o trabalho a ser realizado seja um trabalho perigoso deve-se atentar aos requisitos
+                        mínimos para
+                        iniciar o trabalho conforme chek list específico e autorização.
+                    </p>
+
+                    <p class="p-2 bg-app-blue-600 text-white rounded mb-0">
+                        Prezado fornecedor, em atenção ao que dispõe a legislação de proteção de dados pessoais, informamos que
+                        os seus dados
+                        coletados neste formulário são utilizados para viabilizar o controle de acesso às dependências do
+                        Carrefour. Ressaltamos
+                        que os dados pessoais de clientes Carrefour aos quais nossos fornecedores têm acesso possuem a
+                        finalidade exclusiva de
+                        viabilizar a prestação dos serviços contratados, sendo vedada a utilização dessas informações para
+                        qualquer outro fim.
+                    </p>
+
+                    <hr>
+
+                    <button type="submit" class="btn btn-primary float-end">Salvar</button>
+                </div>
+            </div>
+        </form>
+
+        <ContentListagem />
+
+        <script is:inline>
+            document.querySelector('[data-btn="ok"]').addEventListener('click', (ev) => {
+                ev.preventDefault()
+                document.querySelector('[data-form="prevencao"]').classList.toggle('d-none')
+            })
+        </script>
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,175 @@
+<div class="card">
+    <div class="card-body">
+
+        <div class="section-title align-items-center justify-content-between gap-2">
+            <span class="title">Pré liberação de trabalho nas unidades</span>
+
+            <a class="btn btn-warning btn-sm mb-1" download="" href="trabalhos-perigosos.png">
+                <i class="bi bi-download"></i>
+                Trabalhos Perigosos
+            </a>
+        </div>
+
+        <p class="mb-1">1.1. Preenchimento pela área contratante</p>
+
+        <section class="row">
+            <label class="col-xl-6 col-lg-12 col-md-12col-xl-4">Nome da empresa contratada:
+                <input type="text" name="" class="form-control"
+                    placeholder="NOME DA EMPRESA CONTRATADA PARA REALIZAR O SERVIÇO">
+            </label>
+
+            <label class="col-xl-6 col-lg-6 col-md-6">Nome do responsável (Empresa contratada):
+                <input type="text" name="" class="form-control" placeholder="NOME DA PESSOA RESPONSÁVEL PELA EMPRESA">
+            </label>
+
+            <label class="col-xl-6 col-lg-6 col-md-6">Telefones de contato:
+                <input type="text" name="" class="form-control" placeholder="TELEFONE DA PESSOA RESPONSÁVEL">
+            </label>
+
+            <label class="col-xl-6 col-lg-6 col-md-6">E-mail de contato:
+                <input type="text" name="" class="form-control" placeholder="E-MAIL DA PESSOA RESPONSÁVEL">
+            </label>
+
+            <label class="col-xl-4 col-lg-6 col-md-6">Departamento Solicitante (Funcionário Carrefour ou Matriz):
+                <input type="text" name="" class="form-control" readonly value=" Projetos Property">
+            </label>
+
+            <label class="col-xl-4 col-lg-6 col-md-6">Nome completo do solicitante (Funcionário Carrefour ou Matriz):
+                <input type="text" name="" class="form-control" readonly>
+            </label>
+
+            <label class="col-xl-4 col-lg-6 col-md-6">Telefones de contato do solicitante (Funcionário Carrefour ou Matriz):
+                <input type="text" name="" class="form-control" readonly value="11 37552703">
+            </label>
+        </section>
+
+        <hr>
+
+        <style is:inline>
+            #clone-row .content-clone:first-child .btn-del { display: none;}
+        </style>
+
+        <p class="fw-bold">Nome dos funcionários da empresa prestadora de serviços que irão acessar a unidade:</p>
+        <div class="table-responsive mb-1">
+            <table class="table table-fixed" id="clone-row">
+                <thead>
+                    <tr>
+                        <td style="width: 300px" class="text-center">Nome</td>
+                        <td style="width: 100px" class="text-center">RG</td>
+                        <td style="width: 150px" class="text-center">Vai realizar trabalho perigoso? (Sim/Não)</td>
+                        <td style="width: 200px" class="text-center">Qual Trabalho Perigoso?</td>
+                        <td style="width: 100px" class="text-center">Del</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="content-clone">
+                        <td>
+                            <input type="text" name="nome_1" id="nome_1" class="form-control">
+                        </td>
+                        <td>
+                            <input type="text" name="rg_1" id="rg_1" class="form-control text-center"
+                                pattern="\d{2}\d{3}\d{3}\d{1}" placeholder="só números">
+                        </td>
+                        <td>
+                            <select name="trabalho_perigosoa" class="form-select">
+                                <option value=""></option>
+                                <option value="1">Sim</option>
+                                <option value="2">Não</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" name="trabalho_1" id="trabalho_1" class="form-control" placeholder="EX: ALTURA">
+                        </td>
+
+                        <td class="text-center">
+                            <button type="button" id="btn-del" class="btn btn-danger btn-small btn-del" data-bs-toggle="tooltip"
+                                data-bs-title="Del">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button type="button" class="btn btn-success mb-0" id="btnAdd-clone">+ Adicionar</button>
+
+        <hr>
+
+        <label class="w-100">Descrever Atividade a ser realizada:
+            <textarea
+            name=""
+            class="form-control"
+            rows="2"
+            placeholder="DESCREVER EXATAMENTE A ATIVIDADE QUE SERÁ REALIZADA. EX: ACESSO AO TELHADO DO HIPER PARA INSTALAÇÃO DE CONDENSADORA"></textarea>
+        </label>
+
+    </div>
+</div>
+
+<script is:inline>
+    window.addEventListener('load', () => {
+        function cloneForm() {
+            let i = 0;
+
+            function updateFieldNumbers() {
+                $("#clone-row .content-clone").each(function (index) {
+                    const row = $(this);
+                    const fields = row.find(
+                        "select, input, a[id^='btn-del'], button[id^='btn-del']"
+                    );
+                    // Atualiza os atributos name, id e value dos campos
+                    fields.each(function () {
+                        const field = $(this);
+                        const name = field.attr("name");
+                        const id = field.attr("id");
+
+                        // / indica o início da expressão regular.
+                        // \d representa qualquer dígito numérico.
+                        // + indica que o dígito numérico pode aparecer uma ou mais vezes consecutivas.
+                        // $ indica o final da string.
+                        // / indica o final da expressão regular.
+                        //expressão regular /\d+$/ procura uma ou mais ocorrências consecutivas de dígitos numéricos no final da string.
+
+                        if (name) {
+                            //atualiza o valor do atributo name
+                            field.attr("name", name.replace(/\d+$/, index + 1));
+                        }
+                        if (id) {
+                            //atualiza o valor do atributo name
+                            field.attr("id", id.replace(/\d+$/, index + 1));
+                        }
+                    });
+                });
+            }
+
+            $("#btnAdd-clone").click(function () {
+                const rowClone = $("#clone-row .content-clone:first")
+                    .clone()
+                    .appendTo("#clone-row");
+                rowClone.find("input").val(""); // Define o valor dos campos clonados como vazio
+
+                //reativa tooltips
+                $('[data-bs-toggle="tooltip"]').tooltip();
+
+                i++;
+                updateFieldNumbers();
+            });
+
+            $("#clone-row").on("click", ".content-clone .btn-del", function () {
+                if (!confirm("Você tem certeza que deseja excluir?")) {
+                    return false;
+                }
+
+                //destroy tooltip
+                $('[data-bs-toggle="tooltip"]').tooltip('dispose')
+
+                $(this).closest(".content-clone").remove();
+                updateFieldNumbers();
+            });
+        }
+
+        cloneForm();
+    })
+</script>

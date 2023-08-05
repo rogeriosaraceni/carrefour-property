@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-body">
+        <div class="section-title">
+            <span class="title">Bloco de Pendências</span>
+        </div>
+
+        <h6>Selecione abaixo as pendências desta Vistoria</h6>
+        <div class="row">
+            <label class="d-flex align-items-baseline gap-1 col-lg-12">
+                <input type="checkbox" name="" class="parent-all" data-group=".group1">
+                <strong>TODOS</strong>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Arquitetura</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Elétrica</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Hidráulica</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>PPCI - Combate a incêndio</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Ar condicionado</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Exaustão</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Gás</span>
+            </label>
+
+            <label class="d-flex align-items-baseline gap-1 col-lg-4">
+                <input type="checkbox" name="" class="group1">
+                <span>Estrutura</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    window.addEventListener('load', () => {
+        $(".parent-all").each(function (index) {
+            const parent = $(this);
+            const group = $(this).data("group");
+
+            parent.change(function () {
+                $(group).prop('checked', parent.prop("checked"));
+            });
+
+            $(group).change(function () {
+                parent.prop('checked', $(group + ':checked').length === $(group).length);
+            });
+        });
+    })
+</script>

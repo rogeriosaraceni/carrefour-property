@@ -1,9 +1,10 @@
 ---
-import '../sass/imports.scss'
+import '@assets/sass/imports.scss'
 
 // Includes Imports
-import Head from '../includes/Head.astro';
-import Footer from '../includes/Footer.astro';
+import Head from '@includes/Head.astro';
+import Footer from '@includes/Footer.astro';
+import BtnScrollToTop from '@components/BtnScrollToTop.astro';
 ---
 
 <!DOCTYPE html>
@@ -15,6 +16,7 @@ import Footer from '../includes/Footer.astro';
 	<body>
 		<slot />
 		<Footer />
+        <BtnScrollToTop />
 	</body>
 </html>
 

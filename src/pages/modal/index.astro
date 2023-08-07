@@ -1,0 +1,27 @@
+---
+import Head from '@includes/Head.astro';
+
+import Modal from './Modal.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="vh-100">
+        <main class="wrapper-grid">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">
+                Launch demo modal
+            </button>
+
+            <Modal
+                id='modal1'
+                idLabel='modal1Label'
+                title='Vistoria Inicial'
+            />
+
+        </main>
+    </body>
+</html>

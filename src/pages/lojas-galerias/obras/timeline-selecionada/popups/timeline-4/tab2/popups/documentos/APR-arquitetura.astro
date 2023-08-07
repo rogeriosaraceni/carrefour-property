@@ -1,0 +1,27 @@
+---
+import Head from '@includes/Head.astro';
+
+import ContentUpload from '@components/Uploads/UploadModel.astro';
+import ContentListagem from '@components/Tables/ArquivoUsuarioAlteracaoDel.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="body-popup">
+        <ContentUpload
+            complementoTitulo=""
+            displayBtn=""
+            linkModelo="/assets/docs/timeline/4/APR  GALERIAS + TERMO DE VINCULO LOJISTAS_BRANCO.docx"
+        />
+
+        <ContentListagem
+            complementoTitulo=""
+            linkArquivo="/assets/docs/arquivo-teste.pdf"
+            nomeArquivo="arquivo-teste.pdf"
+            usuario="Mirian Segantin"
+            alteracao="07/08/2023 15:34:05	"
+        />
+    </body>
+</html>

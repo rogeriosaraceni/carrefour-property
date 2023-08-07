@@ -1,0 +1,32 @@
+---
+import Head from '@includes/Head.astro';
+
+import ContentUpload from '@components/Uploads/UploadSave.astro';
+import ContentTable from '@components/Tables/DataUsuarioHoraArquivo.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="body-popup">
+        <div class="card">
+            <div class="card-body">
+                <div class="section-title">
+                    <span class="title">Vistoria Final</span>
+                </div>
+            </div>
+        </div>
+
+        <ContentUpload />
+        <ContentTable
+            complementoTitulo=""
+            linkArquivo="/assets/docs/timeline/7/SPA-KMP-RVF-O BOTICARIO-R01.pdf"
+            icon="bi bi-cloud-arrow-down-fill"
+            data="07/08/2023"
+            usuario="Mirian Segantin"
+            hora="11:23:08"
+            nomeArquivo="SPA-KMP-RVF-O BOTICARIO-R01.pdf"
+        />
+    </body>
+</html>

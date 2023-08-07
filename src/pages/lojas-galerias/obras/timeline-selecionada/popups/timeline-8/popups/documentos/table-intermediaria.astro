@@ -1,0 +1,30 @@
+---
+import Head from '@includes/Head.astro';
+
+import ContentUpload from '@components/Uploads/UploadSave.astro';
+import ContentTable from '@components/Tables/ArquivoUsuarioAlteracaoDel.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="body-popup">
+        <div class="card">
+            <div class="card-body">
+                <div class="section-title">
+                    <span class="title">Pendências da Vistoria Intermediária</span>
+                </div>
+            </div>
+        </div>
+
+        <ContentUpload />
+        <ContentTable
+            complementoTitulo=""
+            linkArquivo="/assets/docs/arquivo-teste.pdf"
+            nomeArquivo="arquivo-teste.pdf"
+            usuario="Mirian Segantin"
+            alteracao="07/08/2023 15:34:05"
+        />
+    </body>
+</html>

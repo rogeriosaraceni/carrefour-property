@@ -1,0 +1,31 @@
+---
+interface Props {
+    complementoTitulo?: string;
+}
+
+const {
+    complementoTitulo,
+} = Astro.props;
+---
+
+<div class="card">
+    <div class="card-body">
+        <div class="section-title">
+            <span class="title">Anexar Documentos {complementoTitulo}</span>
+        </div>
+
+        <form>
+            <div class="row">
+                <label class="col-sm-9">
+                    <input type="file" name="" class="form-control" multiple="">
+                </label>
+
+                <div class="col-sm-3">
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

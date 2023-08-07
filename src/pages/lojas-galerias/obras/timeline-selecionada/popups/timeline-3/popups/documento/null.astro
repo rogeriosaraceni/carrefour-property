@@ -1,0 +1,24 @@
+---
+import Head from '@includes/Head.astro';
+
+import ContentUpload from '@components/Uploads/UploadSave.astro';
+import ContentTable from '@components/Tables/DataUsuarioHoraArquivo.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="body-popup">
+        <ContentUpload />
+        <ContentTable
+            complementoTitulo=""
+            linkArquivo=""
+            icon=""
+            data=""
+            usuario=""
+            hora=""
+            nomeArquivo=""
+        />
+    </body>
+</html>

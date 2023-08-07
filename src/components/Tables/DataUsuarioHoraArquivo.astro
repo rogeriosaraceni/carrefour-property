@@ -1,0 +1,75 @@
+---
+interface Props {
+    complementoTitulo?: string;
+    linkArquivo?: string;
+    icon?: string;
+    data?: string;
+    usuario?: string;
+    hora?: string;
+    nomeArquivo?: string;
+}
+
+const {
+    complementoTitulo,
+    linkArquivo,
+    icon,
+    data,
+    usuario,
+    hora,
+    nomeArquivo,
+} = Astro.props;
+---
+
+<div class="card">
+    <div class="card-body">
+        <div class="section-title">
+            <span class="title">Documentos {complementoTitulo}</span>
+        </div>
+
+        <div class="table-responsive" style="max-height: 300px;">
+            <table class="table text-center table-fixed fixThead">
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">Data</th>
+                        <th style="width: 100px;">Usuário</th>
+                        <th style="width: 100px;">Hora</th>
+                        <th style="width: 250px;">Arquivo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <form method="POST" action="">
+                                    <a
+                                        class="lh-1 text-decoration-none fs-4 text-success"
+                                        download=""
+                                        href={linkArquivo}
+                                    >
+                                        <i class={icon}></i>
+                                    </a>
+                                </form>
+
+                                <span class="lh-1">{data}</span>
+                            </div>
+                        </td>
+
+                        <td>{usuario}</td>
+                        <td>{hora}</td>
+
+                        <td>
+                            <form method="POST" action="">
+                                <a
+                                    href={linkArquivo}
+                                    target="_blank">
+                                    {nomeArquivo}
+                                </a>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

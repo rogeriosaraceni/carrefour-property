@@ -1,0 +1,24 @@
+---
+import Head from '@includes/Head.astro';
+
+import ContentUpload from '@components/Uploads/UploadSave.astro';
+import ContentTable from '@components/Tables/DataUsuarioHoraArquivo.astro';
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body class="body-popup">
+        <ContentUpload />
+        <ContentTable
+            complementoTitulo=""
+            linkArquivo="/assets/docs/timeline/3/proj.arquitetura.zip"
+            icon="bi bi-cloud-arrow-down-fill"
+            data="07/08/2023"
+            usuario="Mirian Segantin"
+            hora="11:23:08"
+            nomeArquivo="proj .arquitetura.zip"
+        />
+    </body>
+</html>

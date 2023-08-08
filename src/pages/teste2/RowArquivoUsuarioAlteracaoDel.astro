@@ -1,0 +1,31 @@
+---
+interface Props {
+    linkArquivo?: string;
+    nomeArquivo?: string;
+    usuario?: string;
+    alteracao?: string;
+}
+
+const {
+    linkArquivo,
+    nomeArquivo,
+    usuario,
+    alteracao,
+
+} = Astro.props;
+---
+
+<tr>
+    <td>
+        <a href={linkArquivo} download="">
+            {nomeArquivo}
+        </a>
+    </td>
+    <td>{usuario}</td>
+    <td>{alteracao}</td>
+    <td>
+        <a class="text-secondary" data-bs-toggle="tooltip" data-bs-title="Del" data-row="delete" href="#">
+            <i class="bi bi-trash fs-5 icon-tab"></i>
+        </a>
+    </td>
+</tr>

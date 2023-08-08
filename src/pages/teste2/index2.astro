@@ -1,0 +1,68 @@
+---
+import Head from '@includes/Head.astro';
+import ListArquivoUsuarioAlteracaoDel from "./ListArquivoUsuarioAlteracaoDel.astro";
+
+interface Props {
+    linkArquivo?: string;
+    nomeArquivo?: string;
+    usuario?: string;
+    alteracao?: string;
+}
+
+const {
+    linkArquivo,
+    nomeArquivo,
+    usuario,
+    alteracao,
+
+} = Astro.props;
+
+const dataList = [
+    {
+        "linkArquivo": "#",
+        "nomeArquivo": "1",
+        "usuario": "1",
+        "alteracao": "1",
+    },
+    {
+        "linkArquivo": "#",
+        "nomeArquivo": "2",
+        "usuario": "2",
+        "alteracao": "2",
+    }
+]
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body>
+        <main class="main-app">
+            <ListArquivoUsuarioAlteracaoDel>
+
+                    {
+                        dataList.map((item: any) => {
+                            return (
+                            <tr>
+                                <td>
+                                    <a href={item.linkArquivo} download="">
+                                        {item.nomeArquivo}
+                                    </a>
+                                </td>
+                                <td>{item.usuario}</td>
+                                <td>{item.alteracao}</td>
+                                <td>
+                                    <a class="text-secondary" data-bs-toggle="tooltip" data-bs-title="Del" data-row="delete" href="#">
+                                        <i class="bi bi-trash fs-5 icon-tab"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            )
+                        })
+                    }
+
+            </ListArquivoUsuarioAlteracaoDel>
+        </main>
+    </body>
+</html>

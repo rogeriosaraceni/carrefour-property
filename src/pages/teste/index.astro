@@ -1,0 +1,45 @@
+---
+import Head from '@includes/Head.astro';
+import Container from "./Container.astro";
+import AppCards from './AppCards.astro';
+
+const response = await fetch(
+    "https://official-joke-api.appspot.com/random_ten"
+)
+const data = await response.json()
+
+const data2 = [
+    {
+        "id": 1,
+        "setup": "Setup 1"
+    },
+    {
+        "id": 2,
+        "setup": "Setup 2"
+    }
+]
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body>
+        <main class="main-app">
+            <Container>
+                <ul class="list-group list-unstyled">
+                    {
+                        data2.map((item: any) => {
+                            return (
+                                <AppCards
+                                url='#'
+                                id={item.id}
+                                setup={item.setup} />
+                            )
+                        })
+                    }
+                </ul>
+            </Container>
+        </main>
+    </body>
+</html>

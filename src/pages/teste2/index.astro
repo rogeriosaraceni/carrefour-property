@@ -1,0 +1,46 @@
+---
+import Head from '@includes/Head.astro';
+import ListArquivoUsuarioAlteracaoDel from "./ListArquivoUsuarioAlteracaoDel.astro";
+import RowArquivoUsuarioAlteracaoDel from './RowArquivoUsuarioAlteracaoDel.astro';
+
+const dataList = [
+    {
+        "linkArquivo": "#",
+        "nomeArquivo": "1",
+        "usuario": "1",
+        "alteracao": "1",
+    },
+    {
+        "linkArquivo": "#",
+        "nomeArquivo": "2",
+        "usuario": "2",
+        "alteracao": "2",
+    }
+]
+---
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <Head />
+
+    <body>
+        <main class="main-app">
+            <ListArquivoUsuarioAlteracaoDel>
+                <ul class="list-group list-unstyled">
+                    {
+                        dataList.map((item: any) => {
+                            return (
+                                <RowArquivoUsuarioAlteracaoDel
+                                    linkArquivo={item.linkArquivo}
+                                    nomeArquivo={item.nomeArquivo}
+                                    usuario={item.usuario}
+                                    alteracao={item.alteracao}
+                                />
+                            )
+                        })
+                    }
+                </ul>
+            </ListArquivoUsuarioAlteracaoDel>
+        </main>
+    </body>
+</html>

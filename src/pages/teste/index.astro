@@ -1,6 +1,6 @@
 ---
 import Head from '@includes/Head.astro';
-import Container from "./Container.astro";
+import Container from "@layouts/Container.astro";
 import AppCards from './AppCards.astro';
 
 const response = await fetch(
@@ -29,7 +29,7 @@ const data2 = [
             <Container>
                 <ul class="list-group list-unstyled">
                     {
-                        data2.map((item: any) => {
+                        data2.map((item) => {
                             return (
                                 <AppCards
                                 url='#'

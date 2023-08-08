@@ -1,7 +1,7 @@
 ---
 import Head from '@includes/Head.astro';
-import ListArquivoUsuarioAlteracaoDel from "./ListArquivoUsuarioAlteracaoDel.astro";
-import RowArquivoUsuarioAlteracaoDel from './RowArquivoUsuarioAlteracaoDel.astro';
+import List from '@layouts/List.astro';
+import Row from './Row.astro';
 
 const dataList = [
     {
@@ -25,22 +25,20 @@ const dataList = [
 
     <body>
         <main class="main-app">
-            <ListArquivoUsuarioAlteracaoDel>
-                <ul class="list-group list-unstyled">
-                    {
-                        dataList.map((item: any) => {
-                            return (
-                                <RowArquivoUsuarioAlteracaoDel
-                                    linkArquivo={item.linkArquivo}
-                                    nomeArquivo={item.nomeArquivo}
-                                    usuario={item.usuario}
-                                    alteracao={item.alteracao}
-                                />
-                            )
-                        })
-                    }
-                </ul>
-            </ListArquivoUsuarioAlteracaoDel>
+            <List>
+                {
+                    dataList.map((item) => {
+                        return (
+                            <Row
+                                linkArquivo={item.linkArquivo}
+                                nomeArquivo={item.nomeArquivo}
+                                usuario={item.usuario}
+                                alteracao={item.alteracao}
+                            />
+                        )
+                    })
+                }
+            </List>
         </main>
     </body>
 </html>

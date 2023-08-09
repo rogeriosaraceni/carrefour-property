@@ -1,0 +1,28 @@
+---
+import ListArquivoUsuarioAlteracaoDel from '@components/Lists/ArquivoUsuarioAlteracaoDel/List.astro';
+import RowArquivoUsuarioAlteracaoDel from '@components/Lists/ArquivoUsuarioAlteracaoDel/Row.astro';
+
+const dataList = [
+    {
+        "linkArquivo": "/assets/docs/arquivo-teste.pdf",
+        "nomeArquivo": "arquivo-teste.pdf",
+        "usuario": "Mirian Segantin",
+        "alteracao": "07/08/2023 15:34:05",
+    }
+]
+---
+
+<ListArquivoUsuarioAlteracaoDel>
+    {
+        dataList.map((item) => {
+            return (
+                <RowArquivoUsuarioAlteracaoDel
+                    linkArquivo={item.linkArquivo}
+                    nomeArquivo={item.nomeArquivo}
+                    usuario={item.usuario}
+                    alteracao={item.alteracao}
+                />
+            )
+        })
+    }
+</ListArquivoUsuarioAlteracaoDel>

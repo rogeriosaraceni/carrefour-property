@@ -1,0 +1,10 @@
+---
+const res = await fetch('https://api.github.com/repos/withastro/astro')
+const json = await res.json()
+const id = json.id;
+const stars = json.stargazers_count || 0;
+---
+
+<p>ID: {id}</p>
+<p>Astro has {stars} 🧑‍🚀</p>
+

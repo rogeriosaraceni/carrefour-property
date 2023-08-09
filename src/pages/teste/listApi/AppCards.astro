@@ -1,0 +1,25 @@
+---
+interface Props{
+    id: number;
+    url?: string;
+    setup: string;
+}
+
+const { id, url, setup } = Astro.props;
+---
+
+<li class="list-group-item p-0 mb-1">
+    <a class="d-block p-2" href={url}>
+        <h6 class="mb-0">{id}</h6>
+        <small>{setup}</small>
+    </a>
+</li>
+
+<style>
+    .list-group-item{
+        transition: all 0.3s;
+    }
+    .list-group-item:hover{
+        background-color: chartreuse;
+    }
+</style>
